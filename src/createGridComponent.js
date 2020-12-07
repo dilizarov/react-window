@@ -737,6 +737,11 @@ export default function createGridComponent({
         scrollHeight,
         scrollWidth,
       } = event.currentTarget;
+
+      if (typeof this.props.onScrollNative === 'function') {
+        this.props.onScrollNative(event);
+      }
+
       this.setState(prevState => {
         if (
           prevState.scrollLeft === scrollLeft &&
